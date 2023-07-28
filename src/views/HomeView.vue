@@ -1,9 +1,21 @@
-<script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+<template>
+  <!-- <UniqueHeader/> -->
+  <Header/>
+</template>
+
+<script>
+import UniqueHeader from '@/components/UniqueHeader.vue'
+import Header from '@/components/Header.vue'
+
+export default {
+  name: 'Home View',
+  components: {
+    UniqueHeader,
+    Header
+  }
+}
+
 </script>
 
-<template>
-  <main>
-    <TheWelcome />
-  </main>
-</template>
+<style lang="scss" scoped>
+</style>

@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+$main-font: 'Josefin Sans', sans-serif;
+
+:root {
+    --bg-color: #fff;
+    --dark-color: #000;
+    --primary-color: #101750;
+    --main-white: #fff;
+    --main-pink: #FB2E86;
+    --main-red: #FB2448;
+    --main-blue: #2F1AC4;
+    --off-ny-blue: #3F509E;
+    --ny-blue: #151875;
+    --sky-blue: linear-gradient(135deg, #F3F9FF 0%, #F1F0FF 100%);
+    --main-purple: #7E33E0;
+    --off-purple: #9F63B5;
+    --txt-purple: #8A8FB9;
+    --nav-bg: #fff;
+    --header-bg: #F2F0FF;
+    --footer-bg: #EEEFFB;
+    --light-bg: #E7E4F8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: $main-font;
+    color: var(--primary-color);
+    user-select: none;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    user-select: none;
+}
+
+button {
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1200px;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+.row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.heading__bar {
+    .bar__contacts, .user__links {
+        &-item {
+            span > i {
+                color: var(--main-white);
+                transition: .4s;
+                -webkit-transition: .4s;
+                -moz-transition: .4s;
+                -ms-transition: .4s;
+                -o-transition: .4s;
+            }
+
+            &:hover {
+                span > i {
+                    color: var(--main-pink);
+                }
+            }
+        } 
+    }
+}
+
+.pink-btn {
+    max-width: max-content;
+    width: 100%;
+    background: var(--main-pink);
+    color: var(--main-white);
+    border: 0;
+    font-size: 17px;
+    padding: 15px 40px;
+    text-transform: capitalize;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+    transition: .3s;
+    -webkit-transition: .3s;
+    -moz-transition: .3s;
+    -ms-transition: .3s;
+    -o-transition: .3s;
+
+    &:hover {
+        background: rgba($color: #FB2E86, $alpha: .6);
+    }
+    
+}
