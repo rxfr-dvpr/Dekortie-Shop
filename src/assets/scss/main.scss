@@ -10,6 +10,8 @@ $main-font: 'Josefin Sans', sans-serif;
     --main-pink: #FB2E86;
     --main-red: #FB2448;
     --main-blue: #2F1AC4;
+    --main-green: #08D15F;
+    --light-blue: #2e94fa;
     --off-ny-blue: #3F509E;
     --ny-blue: #151875;
     --sky-blue: linear-gradient(135deg, #F3F9FF 0%, #F1F0FF 100%);
@@ -20,6 +22,7 @@ $main-font: 'Josefin Sans', sans-serif;
     --header-bg: #F2F0FF;
     --footer-bg: #EEEFFB;
     --light-bg: #E7E4F8;
+    --title-blue: #1A0B5B;
 }
 
 * {
@@ -29,6 +32,11 @@ $main-font: 'Josefin Sans', sans-serif;
     font-family: $main-font;
     color: var(--primary-color);
     user-select: none;
+    transition: .4s;
+    -webkit-transition: .4s;
+    -moz-transition: .4s;
+    -ms-transition: .4s;
+    -o-transition: .4s;
 }
 
 body {
@@ -45,6 +53,7 @@ a {
 
 img {
     user-select: none;
+    pointer-events: none;
 }
 
 button {
@@ -109,6 +118,19 @@ button {
 
     &:hover {
         background: rgba($color: #FB2E86, $alpha: .6);
-    }
-    
+    }   
+}
+
+.all-title {
+    font-size: 42px;
+    color: var(--title-blue);
+    text-transform: capitalize;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--main-purple);
 }

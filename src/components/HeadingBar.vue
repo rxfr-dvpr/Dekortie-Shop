@@ -40,6 +40,10 @@ export default {
     width: 100%;
     background: var(--main-purple);
     padding: 10px 0;
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 2020;
 
     .row {
         justify-content: space-between;
