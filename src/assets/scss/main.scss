@@ -75,6 +75,13 @@ button {
     flex-wrap: wrap;
 }
 
+.logo-brand {
+    font-size: 34px;
+    font-weight: 700;
+    text-transform: capitalize;
+    user-select: none;
+}
+
 .heading__bar {
     .bar__contacts, .user__links {
         &-item {

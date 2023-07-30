@@ -48,13 +48,6 @@ export default {
     justify-content: space-between;
   }
 
-  .logo-brand {
-    font-size: 34px;
-    font-weight: 700;
-    text-transform: capitalize;
-    user-select: none;
-  }
-
   &__collapse {
     max-width: max-content;
     width: 100%;

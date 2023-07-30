@@ -16,8 +16,8 @@ export const headingbarStore = defineStore('Heading Bar Store', {
     ],
     userLinks: [
       {
-        name: "login",
-        url: '/login',
+        name: "account",
+        url: '/account',
         icon: '<i class="fal fa-user"></i>'
       },
       {

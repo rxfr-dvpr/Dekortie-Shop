@@ -4,18 +4,21 @@
   <main class="main">
     <FtdProducts/>
   </main>
-  
+
+  <Footer/>
 </template>
 
 <script>
 import Header from '@/components/HomeComponents/Header.vue'
 import FtdProducts from '@/components/HomeComponents/FtdProducts.vue'
+import Footer from '@/components/Footer.vue'
 
 export default {
   name: 'Home View',
   components: {
     Header,
-    FtdProducts
+    FtdProducts,
+    Footer
   }
 }
 
