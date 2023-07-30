@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 
 export const subscrStore = defineStore('Subscription Store', {
     state: () => ({
-        title: 'get leatest update by subscribe 0ur newslater',
+        title: 'get latest update by subscribe our newslater',
         btnValue: 'shop now'
     })
 })

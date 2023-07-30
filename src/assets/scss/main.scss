@@ -11,6 +11,7 @@ $main-font: 'Josefin Sans', sans-serif;
     --main-red: #FB2448;
     --main-blue: #2F1AC4;
     --main-green: #08D15F;
+    --main-yellow: #FFA454;
     --light-blue: #2e94fa;
     --off-ny-blue: #3F509E;
     --ny-blue: #151875;
@@ -129,7 +130,7 @@ button {
 }
 
 .all-title {
-    font-size: 42px;
+    font-size: calc(24px + 18 * (100vw / 1920));
     color: var(--title-blue);
     text-transform: capitalize;
 }
@@ -145,5 +146,17 @@ button {
 .copyright__content {
     .social__links-item > i {
         color: var(--main-white);
+    }
+}
+
+@media (min-width: 1920px) {
+    .all-title {
+        font-size: 42px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .all-title {
+        font-size: calc(24px + (18 + 18 * 0.7) * ((100vw - 320px)/ 1920));
     }
 }

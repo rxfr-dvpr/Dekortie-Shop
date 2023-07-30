@@ -6,7 +6,11 @@
 
     <Offer/>
 
+    <TopCategories/>
+
     <Subscription/>
+
+    <LatestBlog/>
   </main>
 
 </template>
@@ -16,14 +20,18 @@ import Header from '@/components/HomeComponents/Header.vue'
 import FtdProducts from '@/components/HomeComponents/FtdProducts.vue'
 import Subscription from '@/components/HomeComponents/Subscription.vue'
 import Offer from '@/components/HomeComponents/Offer.vue'
+import LatestBlog from '@/components/HomeComponents/LatestBlog.vue'
+import TopCategories from '@/components/HomeComponents/TopCategories.vue'
 
 export default {
   name: 'Home View',
   components: {
     Header,
     FtdProducts,
+    TopCategories,
     Subscription,
     Offer,
+    LatestBlog,
   }
 }
 
