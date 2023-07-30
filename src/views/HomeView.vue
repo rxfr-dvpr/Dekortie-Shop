@@ -3,22 +3,27 @@
 
   <main class="main">
     <FtdProducts/>
+
+    <Offer/>
+
+    <Subscription/>
   </main>
 
-  <Footer/>
 </template>
 
 <script>
 import Header from '@/components/HomeComponents/Header.vue'
 import FtdProducts from '@/components/HomeComponents/FtdProducts.vue'
-import Footer from '@/components/Footer.vue'
+import Subscription from '@/components/HomeComponents/Subscription.vue'
+import Offer from '@/components/HomeComponents/Offer.vue'
 
 export default {
   name: 'Home View',
   components: {
     Header,
     FtdProducts,
-    Footer
+    Subscription,
+    Offer,
   }
 }
 
@@ -32,7 +37,7 @@ export default {
   flex-direction: column;
   align-items: flex-start;
   padding: 120px 0;
-  row-gap: 70px;
+  row-gap: 80px;
 }
 
 </style>

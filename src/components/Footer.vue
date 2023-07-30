@@ -28,9 +28,11 @@
   <div class="copyright__content">
     <div class="container">
         <div class="row">
-            <p class="copyright-txt"></p>
-            
-            
+            <p class="copyright-txt">©RXFR - all rights reserved</p>
+
+            <div class="social__links">
+                <a v-for="(link, idd) in store.socialLinks" :key="idd" target="_blank" :href="link.url" class="social__links-item" v-html="link.icon"></a>
+            </div>
         </div>
     </div>
   </div>
@@ -136,6 +138,43 @@ export default {
                     color: var(--main-pink);
                 }
             }
+        }
+    }
+}
+
+.copyright__content {
+    width: 100%;
+    background: var(--light-bg);
+    padding: 15px 0;
+
+    .row {
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .copyright-txt {
+        font-size: 15px;
+        color: var(--txt-purple);
+        text-transform: capitalize;
+    }
+
+    .social__links {
+        max-width: max-content;
+        width: 100%;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+
+        &-item {
+            border-radius: 50%;
+            background: var(--ny-blue);
+            height: 30px;
+            min-width: 30px;
+            max-width: 30px;
+            width: 100%;
+            display: grid;
+            place-items: center;
+            font-size: 14px;
         }
     }
 }

@@ -141,3 +141,9 @@ button {
 ::-webkit-scrollbar-thumb {
     background: var(--main-purple);
 }
+
+.copyright__content {
+    .social__links-item > i {
+        color: var(--main-white);
+    }
+}

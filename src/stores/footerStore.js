@@ -84,6 +84,20 @@ export const footerStore = defineStore('Footer Store', {
                     },
                 ]
             },
+        ],
+        socialLinks: [
+            {
+                icon: '<i class="fab fa-facebook-f"></i>',
+                url: 'https://www.facebook.com/'
+            },
+            {
+                icon: '<i class="fab fa-instagram"></i>',
+                url: 'https://www.instagram.com/redfox_4ever/'
+            },
+            {
+                icon: '<i class="fab fa-twitter"></i>',
+                url: 'https://twitter.com/redfox_forever'
+            }
         ]
     })
 })
