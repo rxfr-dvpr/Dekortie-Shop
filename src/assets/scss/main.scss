@@ -160,3 +160,21 @@ button {
         font-size: calc(24px + (18 + 18 * 0.7) * ((100vw - 320px)/ 1920));
     }
 }
+
+// About Page 
+
+.testimonials__section {
+    .testi-swiper {
+        .swiper-pagination-bullet {
+            width: 30px !important;
+            height: 4px !important;
+            background: var(--main-pink) !important;
+            outline: none;
+            border-radius: 10px;
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            -ms-border-radius: 10px;
+            -o-border-radius: 10px;
+        }
+    }
+}
