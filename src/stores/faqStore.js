@@ -1,6 +1,6 @@
 import { defineStore } from "pinia";
 
-export const faqStore = defineStore('products Store', {
+export const faqStore = defineStore('Faq Store', {
     state: () => ({
         header: {
             title: 'FAQ',

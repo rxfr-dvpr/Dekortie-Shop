@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { generalInfoStore } from "@/stores/FaqStores/GeneralInfo.js";
+import { generalInfoStore } from "@/stores/FaqStores/generalInfoStore.js";
 
 export default {
     name: 'General Info',

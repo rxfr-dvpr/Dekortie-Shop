@@ -1,12 +1,12 @@
 <template>
     <UniqueHeader :title="store.header.title" :pagesList="store.header.pagesList"/>
-    
+
     <GeneralInfo/>
 </template>
 
 <script>
 import UniqueHeader from '@/components/UniqueHeader.vue'
-import { faqStore } from "@/stores/FaqStore.js";
+import { faqStore } from "@/stores/faqStore.js";
 import GeneralInfo from '@/components/FAQComponents/GeneralInfo.vue';
 
 export default {
