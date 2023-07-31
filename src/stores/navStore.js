@@ -12,10 +12,6 @@ export const navStore = defineStore('Nav Store', {
                 url: '/about'
             },
             {
-                name: 'products',
-                url: '/products'
-            },
-            {
                 name: 'blog',
                 url: '/blog'
             },
@@ -26,7 +22,11 @@ export const navStore = defineStore('Nav Store', {
             {
                 name: 'contact',
                 url: '/contact'
-            }
+            },
+            {
+                name: 'FAQ',
+                url: '/faq'
+            },
         ]
     })
 })
