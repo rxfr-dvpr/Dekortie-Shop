@@ -5,8 +5,8 @@
         <div class="row">
             <h2 class="categories-title all-title">{{ store.title }}</h2>
 
-            <div class="categories__products">
-                <div class="categories__products-item" v-for="(item, idx) in store.roundCards" :key="idx" :class="moving ? 'moving' : ''">
+            <div class="categories-list" >
+                <div class="categories-list-item" v-for="(item, idx) in store.roundCards" :key="idx">
                     <div class="item__img-box">
                         <img :src="images[idx]" alt="" class="item-img">
                     </div>
@@ -34,27 +34,31 @@ export default {
         return {
             store: categoriesStore(),
             images: [itemImg1, itemImg2, itemImg3, itemImg4],
-            moving: false
         }
-    },
-    mounted() {
-        let movingAnim = () => { 
-            this.moving = true
-
-            setTimeout(() => {
-                this.moving = false
-            }, 1000);
-        }
-
-        setInterval(() => {
-            movingAnim()        
-        }, 2000);
     }
 }
 
 </script>
 
 <style lang="scss" scoped>
+
+@keyframes movingAnim {
+    0% {
+        transform: translate(-10px, 8px);
+    }
+    30% {
+        transform: translate(-10px, -8px);
+    }
+    50% {
+        transform: translate(10px, -8px);
+    }
+    80% {
+        transform: translate(10px, 8px);
+    }
+    100% {
+        transform: translate(-10px, 8px);
+    }
+}
 
 .categories__section {
     width: 100%;
@@ -67,11 +71,11 @@ export default {
         row-gap: 55px;
     }
 
-    .categories__products {
+    .categories-list {
         width: 100%;
         display: flex;
         justify-content: space-between;
-        gap: 40px;
+        gap: 30px;
 
         &-item {
             max-width: 270px;
@@ -111,6 +115,7 @@ export default {
                     z-index: -1;
                     transform: translate(-10px, 8px);
                     transition: .6s;
+                    animation: movingAnim 1.5s linear infinite;
                 }
             }
 
@@ -126,12 +131,6 @@ export default {
                 font-size: 15px;
                 font-weight: 500;
                 color: var(--ny-blue);
-            }
-
-            &.moving {
-                .item__img-box::before {
-                    transform: translate(10px, 8px);
-                }
             }
         }
     }

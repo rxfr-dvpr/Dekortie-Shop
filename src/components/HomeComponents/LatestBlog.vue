@@ -5,8 +5,7 @@
         <h2 class="latest-blog-title all-title">{{ store.title }}</h2>
 
         <div class="blog__cards">
-          <div class="blog__cards-item" v-for="(item, idx) in store.cards" :key="idx">
-
+          <div class="blog__cards-item" v-for="(item, idx) in store.cards" :key="idx" @click="this.$router.push('/blog')">
             <img :src="cardImages[idx]" alt="" class="blog__card-img">
 
             <div class="blog__card-descr">
@@ -23,6 +22,7 @@
 
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -73,9 +73,9 @@ export default {
       border-radius: 5px;
       overflow: hidden;
       box-shadow: 0 10px 15px rgba($color: #555555, $alpha: .1);
+      cursor: pointer;
 
       .blog__card {
-
         &-img {
           width: 100%;
           max-height: 255px;
@@ -143,13 +143,20 @@ export default {
             color: var(--main-blue);
             text-transform: capitalize;
             border-bottom: 1px solid var(--main-blue);
-
-            &:hover {
-              color: var(--main-pink);
-              border-bottom-color: var(--main-pink);
-            }
           }
+        }
+      }
 
+      &:hover {
+        .blog__card {
+          &-descr-title {
+            color: var(--main-pink);
+          }
+        }
+
+        .read-link {
+          color: var(--main-pink);
+          border-bottom-color: var(--main-pink);
         }
       }
     }

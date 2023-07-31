@@ -5,15 +5,15 @@ export const offerStore = defineStore('Offer Store', {
         title: 'what shopex offer!',
         cards: [
             {
-                name: 'swift & free delivery',
+                name: 'free delivery',
                 txt: 'enjoy swift and free delivery for a seamless shopping experience.'
             },
             {
-                name: 'cashback rewards',
+                name: '100% cash back',
                 txt: 'get rewarded with cashback on your purchases.'
             },
             {
-                name: 'product assurance',
+                name: 'quality product',
                 txt: 'ensuring product quality and reliability.'
             },
             {
