@@ -4,6 +4,8 @@
   <main class="main">
     <FtdProducts/>
 
+    <LatestProducts/>
+
     <Offer/>
 
     <UniqueFeatures/>
@@ -25,12 +27,14 @@ import Offer from '@/components/HomeComponents/Offer.vue'
 import LatestBlog from '@/components/HomeComponents/LatestBlog.vue'
 import TopCategories from '@/components/HomeComponents/TopCategories.vue'
 import UniqueFeatures from '@/components/HomeComponents/UniqueFeatures.vue'
+import LatestProducts from '@/components/HomeComponents/LatestProducts.vue'
 
 export default {
   name: 'Home View',
   components: {
     Header,
     FtdProducts,
+    LatestProducts,
     TopCategories,
     Subscription,
     Offer,
