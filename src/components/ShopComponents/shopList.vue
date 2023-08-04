@@ -18,7 +18,7 @@
           <span class="new-price">${{ item.newPrice || '00' }}.00</span> <span class="old-price">${{ item.oldPrice || '00' }}.00</span>
         </span>
 
-        <p class="item__descr-txt" v-if="!gridType">{{ item.txt }}</p>
+        <p class="item__descr-txt" v-if="!gridType">{{ item.txt || 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dolorum quia itaque doloremque maiores, laudantium neque' }}</p>
       </div>
     </div>
   </div>
