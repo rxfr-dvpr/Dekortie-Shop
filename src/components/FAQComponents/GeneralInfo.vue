@@ -14,7 +14,7 @@
                 </div>
             </div>
 
-            <form class="faq__form">
+            <form action="" class="faq__form" @submit.prevent>
                 <h3 class="faq__form-title">{{ store.faqForm.title }}</h3>
                 <input type="text" class="faq__form-name" v-model="store.faqForm.name" required placeholder="your name">
                 <input type="email" class="faq__form-email" v-model="store.faqForm.email" required placeholder="your email">
@@ -46,7 +46,7 @@ export default {
 
 .faq__section {
     width: 100%;
-    padding: 130px 0 70px;
+    padding: 100px 0;
 
     .row {
         justify-content: space-between;

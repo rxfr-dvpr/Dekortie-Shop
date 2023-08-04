@@ -76,7 +76,7 @@ export default {
                 align-items: center;
                 justify-content: space-between;
                 background: #F6F7FB;
-                box-shadow: 0 0 15px rgba($color: #00000044, $alpha: .1);
+                box-shadow: 0 0 15px rgba($color: #00000044, $alpha: .08);
                 border-radius: 3px;
                 overflow: hidden;
                 cursor: pointer;

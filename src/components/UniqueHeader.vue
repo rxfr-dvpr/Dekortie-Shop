@@ -66,6 +66,14 @@ export default {
     }
 }
 
+@media (min-width: 1920px) {
+    .header {
+        &__title {
+            font-size: 36px !important;
+        }
+    }
+}
+
 @media (max-width: 992px) {
     .header {
         .row {

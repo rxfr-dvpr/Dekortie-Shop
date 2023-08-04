@@ -86,6 +86,7 @@ export default {
             font-size: 15px;
             color: var(--txt-purple);
             margin-bottom: 30px;
+            line-height: 160%;
 
             &::first-letter {
                 text-transform: uppercase;

@@ -19,6 +19,12 @@
                         <p class="product__info-newPrice">${{ item.newPrice ? item.newPrice : '00'  }}.00</p>
                         <p class="product__info-oldPrice">${{ item.oldPrice ? item.oldPrice : '00' }}.00</p>
                     </div>
+
+                    <div class="product__actions">
+                        <button @click="this.$router.push('/cart')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-shopping-cart" data-v-14426c0f=""></i></button>
+                        <button @click="this.$router.push('/wishlist')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-heart" data-v-14426c0f=""></i></button>
+                        <button @click="this.$router.push('/shop')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-search-plus" data-v-14426c0f=""></i></button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -108,6 +114,9 @@ export default {
             align-items: center;
             padding-top: 30px;
             justify-content: space-between;
+            position: relative;
+            cursor: pointer;
+            overflow: hidden;
 
             .product-img {
                 max-width: max-content;
@@ -148,6 +157,66 @@ export default {
                     font-weight: 600;
                     text-decoration: line-through;
                 }
+            }
+
+            .product__actions {
+                max-width: max-content;
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                row-gap: 15px;
+                position: absolute;
+                bottom: 15%;
+                left: 3%;
+                transform: translateX(-140%);
+
+                &-btn {
+                    border-radius: 50%;
+                    min-width: 30px;
+                    max-width: 30px;
+                    height: 30px;
+                    display: grid;
+                    place-items: center;
+                    transition: 0.4s;
+                    font-size: 15px;
+                    cursor: pointer;
+                    padding-top: 2px;
+                    border: 0;
+                    background: transparent;
+                    
+                    i {
+                        color: var(--light-blue);
+                    }
+
+                    &:hover {
+                        background: var(--main-blue);
+
+                        i {
+                            color: var(--main-white);
+                        }
+                    }
+                }
+            }
+
+            &:hover {
+                .product__actions {
+                    transform: translateX(0);
+                }
+            }
+
+            &::before {
+                content: 'sale';
+                background: var(--main-blue);
+                position: absolute;
+                top: 6%;
+                left: -2%;
+                color: var(--main-white);
+                padding: 5px 20px;
+                border-top-left-radius: 25px;
+                border-bottom-right-radius: 30px;
+                transform: rotate(-35deg);
+                text-transform: capitalize;
             }
         }
     }
