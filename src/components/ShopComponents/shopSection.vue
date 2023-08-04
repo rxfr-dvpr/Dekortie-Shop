@@ -16,8 +16,8 @@
                     <div class="sort-filter all-filter">
                         <span>sort by:</span>
 
-                        <select>
-                            <option :value="item" v-for="(item, idx) in store.topBar.sortFilterOptions" :key="idx">{{ item }}</option>
+                        <select class="sort-type" @change="onChange($event)">
+                            <option :value="item.name" v-for="(item, idx) in store.topBar.sortFilterOptions" :key="idx" :data-value="item.value">{{ item.name }}</option>
                         </select>
                     </div>
                     
@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <ShopList :gridType="gridType"/>
+            <ShopList :gridType="gridType" :list="chList"/>
         </div>
     </div>
   </section>
@@ -38,6 +38,7 @@
 <script>
 import { shopSectionStore } from "@/stores/ShopStores/shopSectionStore.js";
 import ShopList from './shopList.vue';
+import { shopListStore } from "@/stores/ShopStores/shopListStore.js";
 
 export default {
     name: 'Shop Section',
@@ -47,7 +48,23 @@ export default {
     data() {
         return {
             store: shopSectionStore(),
-            gridType: true
+            gridType: true,
+            list: shopListStore().list,
+            chList: shopListStore().list,
+        }
+    },
+    methods: {
+        onChange(event) {
+            let aim = event.target.value;
+            let changedArr = [...this.list]
+
+            if (aim == 'recommended') {
+                this.chList = this.list
+            } else if (aim == 'highest price') {
+                this.chList = changedArr.sort((a, b) => b.newPrice - a.newPrice);
+            } else if (aim == 'lowest price') {
+                this.chList = changedArr.sort((a, b) => a.newPrice - b.newPrice);
+            }
         }
     }
 }

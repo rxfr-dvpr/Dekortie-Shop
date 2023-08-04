@@ -5,7 +5,11 @@ export const shopSectionStore = defineStore('Shop Section Store', {
         topBar: {
             title: 'ecommerce acceories & fashion item',
             subtitle: 'about 9,620 results (0.62 seconds)',
-            sortFilterOptions: ['recommended', 'most wanted', 'highest price',  'lowest price']
+            sortFilterOptions: [ 
+                { name: 'recommended', value: 'rec' }, 
+                { name: 'highest price', value: 'hp' }, 
+                { name: 'lowest price', value: 'lp' } 
+            ]
         }
     })
 })

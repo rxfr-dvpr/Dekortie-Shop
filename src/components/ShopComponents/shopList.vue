@@ -11,12 +11,14 @@
         <div class="item-color-options">
           <span class="color-option yellow"></span>
           <span class="color-option pink"></span>
-          <span class="color-option fiolet"></span>
+          <span class="color-option purple"></span>
         </div>
 
         <span class="item__descr-price">
           <span class="new-price">${{ item.newPrice || '00' }}.00</span> <span class="old-price">${{ item.oldPrice || '00' }}.00</span>
         </span>
+
+        <p class="item__descr-txt" v-if="!gridType">{{ item.txt }}</p>
       </div>
     </div>
   </div>
@@ -33,12 +35,16 @@ export default {
       type: Boolean, 
       default: true,
       required: true
+    },
+    list: {
+      type: Array,
+      default: [],
+      required: true
     }
   },
   data() {
     return {
       store: shopListStore(),
-      list: shopListStore().list,
     }
   }
 }
@@ -77,8 +83,34 @@ export default {
     }
 
     .item-img {
-     
       object-fit: contain;
+    }
+
+    .item-color-options {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+
+      .color-option {
+        width: 15px;
+        min-width: 15px;
+        height: 15px;
+        min-height: 15px;
+        background: var(--main-blue);
+        border-radius: 50%;
+
+        &.yellow {
+          background: var(--main-yellow);
+        }
+
+        &.pink {
+          background: var(--main-pink);
+        }
+
+        &.purple {
+          background: var(--main-purple);
+        }
+      }
     }
 
     .item__descr {
@@ -111,6 +143,12 @@ export default {
           text-decoration: line-through;
         }
       }
+
+      &-txt {
+        font-size: 15px;
+        color: var(--txt-purple);
+        line-height: 175%;
+      }
     }
 
     &:hover {
@@ -126,14 +164,16 @@ export default {
         padding: 18px 20px;
         flex-direction: row;
         justify-content: flex-start;
-        column-gap: 35px;
+        gap: 35px;
+        border-radius: 10px;
+        
 
         .item-img-box {
           max-width: 200px;
         }
 
         .item__descr {
-          max-width: max-content;
+          max-width: 600px;
           align-items: flex-start;
           text-align: start;
           background: transparent;
