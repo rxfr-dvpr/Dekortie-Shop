@@ -15,6 +15,21 @@ const router = createRouter({
       component: () => import('@/views/BlogView.vue')
     },
     {
+      path: '/blog/:id',
+      name: 'single blog',
+      component: () => import('@/views/SingleBlogView.vue'),
+      meta: {
+        hasData: false
+      },
+      beforeEnter: (to, from, next) => {
+        if (to.matched.some(record => record.meta.hasData)) {
+          next()
+        } else {
+          next('/blog')
+        }
+      }
+    },
+    {
       path: '/about',
       name: 'about',
       component: () => import('@/views/AboutView.vue')
@@ -28,6 +43,11 @@ const router = createRouter({
       path: '/shop',
       name: 'shop',
       component: () => import('@/views/ShopView.vue')
+    },
+    {
+      path: '/shop/:id',
+      name: 'shop product',
+      component: () => import('@/views/ShopProductView.vue')
     },
     {
       path: '/faq',

@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row">
             <div class="blog__list">
-                <div class="blog__list-item" v-for="(blog, idx) in store.blogs" :key="idx" @click="this.$router.push(`/shop/${idx + 1}`)">
+                <div class="blog__list-item" v-for="(blog, idx) in store.blogs" :key="idx" @click="pushData(idx)">
                     <img :src="blog.img" alt="" class="blog-img">
 
                     <div class="blog-info">
@@ -14,7 +14,7 @@
                     <h4 class="blog-title">{{ blog.title }}</h4>
                     <p class="blog-txt">{{ blog.txt || loremTxt }} </p>
 
-                    <router-link :to="`/shop/${idx + 1}`" class="read-link">read more</router-link>
+                    <span class="read-link">read more</span>
                 </div>
             </div>
         </div>
@@ -24,13 +24,29 @@
 
 <script>
 import { blogSectionStore } from "@/stores/BlogStores/blogSectionStore.js";
-
+import { singleBlogStore } from "@/stores/BlogStores/singleBlogStore.js";
 export default {
     name: 'Blog Section',
     data() {
         return {
             store: blogSectionStore(),
-            loremTxt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae eveniet culpa assumenda autem eligendi ab dignissimos quo! Ab hic adipisci, veritatis deleniti esse tempore.'
+            loremTxt: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae eveniet culpa assumenda autem eligendi ab dignissimos quo! Ab hic adipisci, veritatis deleniti esse tempore.',
+            sBStore: singleBlogStore()
+        }
+    },
+    methods: {
+        pushData(idx) {
+            this.sBStore.blogData = {}
+            let newData = {...this.store.blogs[idx]}
+            this.sBStore.blogData = newData
+
+            this.$router.getRoutes().forEach(route => {
+                route.name == "single blog" ? route.meta.hasData = true : ""
+            });
+
+            this.sBStore.commentForm = {email: '', name: '', msg: ''}
+
+            this.$router.push(`/blog/${idx + 1}`)
         }
     }
 }
@@ -115,8 +131,6 @@ export default {
                     }
                 }
             }
-
-            
         }
     }
 }

@@ -62,6 +62,14 @@ button {
     cursor: pointer;
 }
 
+textarea {
+    transition: none;
+    -webkit-transition: none;
+    -moz-transition: none;
+    -ms-transition: none;
+    -o-transition: none;
+}
+
 .container {
     max-width: 1200px;
     width: 100%;
