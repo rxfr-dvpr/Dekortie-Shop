@@ -6,7 +6,7 @@
 
             <div class="ftd__products-cards">
                 <div class="ftd__products-cards-item" v-for="(card, idx) in store.cards" :key="idx">
-                    <img :src="productImgs[idx]" alt="" class="product-img">
+                    <img :src="card.img" alt="" class="product-img">
                 
                     <div class="product-descr">
                         <p class="product-descr-name">{{ card.name }}</p>
@@ -17,7 +17,7 @@
                     <button class="view-btn" @click="this.$router.push('/shop')">view details</button>
 
                     <div class="product-options">
-                        <span class="product-options-btn"><i class="far fa-shopping-cart"></i></span>
+                        <span class="product-options-btn" @click="pushData(idx)"><i class="far fa-shopping-cart"></i></span>
                         <span class="product-options-btn"><i class="far fa-heart"></i></span>
                         <span class="product-options-btn"><i class="far fa-search-plus"></i></span>
                     </div>
@@ -30,17 +30,22 @@
 
 <script>
 import { ftdProductsStore } from "@/stores/HomeStores/ftdProductsStore.js";
-import productImg1 from "@/assets/images/homeView/ftdProducts/product-1.png";
-import productImg2 from "@/assets/images/homeView/ftdProducts/product-2.png";
-import productImg3 from "@/assets/images/homeView/ftdProducts/product-3.png";
-import productImg4 from "@/assets/images/homeView/ftdProducts/product-4.png";
+import { cartStore } from "@/stores/cartStore.js";
 
 export default {
     name: 'Features Products',
     data() {
         return {
             store: ftdProductsStore(),
-            productImgs: [productImg1, productImg2, productImg3, productImg4]
+            cartStore: cartStore()
+        }
+    },
+    methods: {
+        pushData(idx) {
+            const data = {...this.store.cards[idx]}
+            data.quantity = 1
+            data.totalPrice = data.price * data.quantity
+            this.cartStore.products.push(data)
         }
     }
 }

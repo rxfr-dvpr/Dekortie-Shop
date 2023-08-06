@@ -60,6 +60,11 @@ const router = createRouter({
       component: () => import('@/views/AccountView.vue')
     },
     {
+      path: '/cart',
+      name: 'cart',
+      component: () => import('@/views/CartView.vue')
+    },
+    {
       path: '/:pathMatch(.*)*',
       name: '404',
       component: () => import('@/views/NotFound.vue')
