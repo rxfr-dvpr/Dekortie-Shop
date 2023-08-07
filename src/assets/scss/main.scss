@@ -70,6 +70,16 @@ textarea {
     -o-transition: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .container {
     max-width: 1200px;
     width: 100%;

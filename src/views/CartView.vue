@@ -4,7 +4,7 @@
   <section class="products__section">
     <div class="container">
         <div class="row">
-            <table class="selected__products-table" v-if="store.products.length">
+            <table class="selected__products-table" v-if="store.uniqueProducts.length">
                 <tr class="product__top-types">
                     <th>product</th>
                     <th>price</th>
@@ -42,9 +42,18 @@
                 <div class="cart__totals-price-info">
                     <p class="cart__totals-subtotal">subtotals: <span>${{ store.getTotalPrice || 0 }}.00</span></p>
                     <p class="cart__totals-withTax">totals: <span>${{ store.getTotalPrice + store.cartTotals.taxFee || 0 }}.00</span></p>
+                    <button class="checkout-btn pink-btn">proceed to checkout</button>
                 </div>
 
                 <p class="cart__totals-title">{{ store.cartTotals.calcTitle }}</p>
+
+                <div class="cart__totals-shipping">
+                    <input type="text" class="country-name" placeholder="country" v-model="store.shipping.country">
+                    <input type="text" class="city-name" placeholder="city/address" v-model="store.shipping.address">
+                    <input type="number" class="postal-code" placeholder="postal code" v-model="store.shipping.postCode">
+
+                    <button class="calculate-btn pink-btn">calculate shipping</button>
+                </div>
             </div>
 
         </div>
@@ -69,12 +78,12 @@ export default {
     methods: {
         priceChange(idx, param) {
             if (param == '-') {
-                this.store.products[idx].quantity--            
+                this.store.uniqueProducts[idx].quantity--            
             } else if (param == '+') {
-                this.store.products[idx].quantity++
+                this.store.uniqueProducts[idx].quantity++
             }
 
-            this.store.products[idx].totalPrice = this.store.products[idx].price * this.store.products[idx].quantity
+            this.store.uniqueProducts[idx].totalPrice = this.store.uniqueProducts[idx].price * this.store.uniqueProducts[idx].quantity
         }
     }
 }
@@ -108,7 +117,6 @@ export default {
         .product-item {
             width: 100%;
             text-align: left;
-            margin: 15px 0;
             text-align: center;
 
             .product {
@@ -143,6 +151,8 @@ export default {
                 &-quantity {
                     .quantity-btn {
                         cursor: pointer;
+                        background: #E7E7EF;
+                        padding: 3px 6px;
                     }
                 }
             }
@@ -177,7 +187,7 @@ export default {
                 text-transform: capitalize;
             }
 
-            &-price-info {
+            &-price-info, &-shipping {
                 width: 100%;
                 background: var(--header-bg);
                 padding: 30px 25px;
@@ -186,6 +196,11 @@ export default {
                 flex-direction: column;
                 align-items: center;
                 row-gap: 35px;
+
+                .checkout-btn {
+                    max-width: 100%;
+                    background: var(--main-green);
+                }
             }
 
             &-subtotal, &-withTax {
@@ -205,8 +220,26 @@ export default {
                     color: var(--off-ny-blue);
                 }
             }
-        }
 
+            &-shipping {
+                input {
+                    width: 100%;
+                    outline: none;
+                    border: 0;
+                    font-size: 15px;
+                    color: var(--txt-purple);
+                    background: transparent;
+                    border-bottom: 1px solid #C7CEE4;
+                    padding-bottom: 4px;
+
+                    &::placeholder {
+                        font-size: 15px;
+                        color: var(--txt-purple);
+                        text-transform: capitalize;
+                    }
+                }
+            }
+        }
     }
 }
 
