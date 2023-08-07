@@ -4,7 +4,7 @@
   <section class="products__section">
     <div class="container">
         <div class="row">
-            <table class="selected__products-table" v-if="store.uniqueProducts.length">
+            <table class="selected__products-table" v-if="store.products.length">
                 <tr class="product__top-types">
                     <th>product</th>
                     <th>price</th>
@@ -12,7 +12,7 @@
                     <th>total</th>
                 </tr>
 
-                <tr class="product-item" v-for="(product, idx) in store.getUniqueArr" :key="idx">
+                <tr class="product-item" v-for="(product, idx) in store.products" :key="idx">
                     <td class="product-info">
                         <img :src="product.img" alt="" class="product-info-img">
                         <p class="product-info-name">{{ product.name }}</p>
@@ -78,12 +78,12 @@ export default {
     methods: {
         priceChange(idx, param) {
             if (param == '-') {
-                this.store.uniqueProducts[idx].quantity--            
+                this.store.products[idx].quantity--            
             } else if (param == '+') {
-                this.store.uniqueProducts[idx].quantity++
+                this.store.products[idx].quantity++
             }
 
-            this.store.uniqueProducts[idx].totalPrice = this.store.uniqueProducts[idx].price * this.store.uniqueProducts[idx].quantity
+            this.store.products[idx].totalPrice = this.store.products[idx].price * this.store.products[idx].quantity
         }
     }
 }
@@ -104,6 +104,7 @@ export default {
     .selected__products-table {
         max-width: 720px;
         width: 100%;
+        height: 100%;
 
         .product__top-types {
             th {

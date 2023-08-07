@@ -42,10 +42,19 @@ export default {
     },
     methods: {
         pushData(idx) {
-            const data = {...this.store.cards[idx]}
-            data.quantity = 1
-            data.totalPrice = data.price * data.quantity
-            this.cartStore.products.push(data)
+            const data = {...this.store.cards[idx]};
+
+            const existingProduct = this.cartStore.products.find(
+              (item) => item.uniqueID === data.uniqueID
+            );
+
+            if (existingProduct) {
+              existingProduct.quantity++;
+            } else {
+              data.quantity = 1;
+              data.totalPrice = data.price * data.quantity;
+              this.cartStore.products.push(data);
+            }
         }
     }
 }

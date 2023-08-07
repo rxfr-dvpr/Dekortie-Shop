@@ -1,5 +1,4 @@
 import { defineStore } from "pinia";
-import { reactive } from "vue";
 
 export const cartStore = defineStore('Cart Store', {
     state: () => ({
@@ -8,7 +7,6 @@ export const cartStore = defineStore('Cart Store', {
             pagesList: ['home', 'pages', 'shopping cart']
         },
         products: [],
-        uniqueProducts: [],
         cartTotals: {
             title: 'cart totals',
             taxFee: 105,
@@ -21,19 +19,10 @@ export const cartStore = defineStore('Cart Store', {
         }
     }),
     getters: {
-        getUniqueArr: (state) => {
-            if (reactive(state.products)) {
-                const arr = [...state.products]
-                state.uniqueProducts = arr.filter((obj, idx, self) => idx === self.findIndex((t) => t.name === obj.name && t.price === obj.price))
-                return state.uniqueProducts
-            }
-        },
-        getTotalPrice: (state) => {
-            if (reactive(state.uniqueProducts.length)) {
-                let ttPrice = 0
-                state.uniqueProducts.map(item => ttPrice += item.totalPrice)
-                return ttPrice
-            }
+        getTotalPrice() {
+            let ttPrice = 0
+            this.products.map(item => ttPrice += item.totalPrice)
+            return ttPrice
         }
     }
 })
