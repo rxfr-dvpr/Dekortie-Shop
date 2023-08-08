@@ -20,10 +20,6 @@ export const navStore = defineStore('Nav Store', {
                 url: '/shop'
             },
             {
-                name: 'contact',
-                url: '/contact'
-            },
-            {
                 name: 'FAQ',
                 url: '/faq'
             },

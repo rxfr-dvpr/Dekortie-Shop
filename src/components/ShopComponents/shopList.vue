@@ -1,6 +1,6 @@
 <template>
   <div class="shop__list" :class="{'defaultView': gridType}">
-    <div class="shop__list-item" v-for="(item, idx) in list" :key="idx" @click="this.$router.push(`/shop/${idx + 1}`)">
+    <div class="shop__list-item" v-for="(item, idx) in list" :key="idx" @click="this.$router.push(`/shop`)">
       <div class="item-img-box">
         <img :src="item.img" :alt="item.name || 'furniture'" class="item-img" loading="lazy">
       </div>

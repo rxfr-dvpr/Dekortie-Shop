@@ -4,6 +4,7 @@
   <section class="single-blog__section">
     <div class="container">
       <div class="row">
+
         <div class="single-blog">
           <img :src="store.blogData.img" alt="no img" class="single-blog-img" />
 
@@ -88,8 +89,7 @@ export default {
   data() {
     return {
       store: singleBlogStore(),
-      loremTxt:
-        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae eveniet culpa assumenda autem eligendi ab dignissimos quo! Ab hic adipisci, veritatis deleniti esse tempore.",
+      loremTxt: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam beatae eveniet culpa assumenda autem eligendi ab dignissimos quo! Ab hic adipisci, veritatis deleniti esse tempore.",
     };
   },
 };

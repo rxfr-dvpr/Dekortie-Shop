@@ -1,8 +1,8 @@
 <template>
-    <div class="heading__bar" v-if="wWidth > 886">
+    <div class="heading__bar" >
         <div class="container">
             <div class="row">
-                <div class="bar__contacts">
+                <div class="bar__contacts" v-if="wWidth > 886">
                     <a :href="item.url" v-for="(item, id) in store.contacts" :key="id" class="bar__contacts-item"><span v-html="item.icon" class="link-icon"></span> {{ item.name }}</a>
                 </div>
 
@@ -86,10 +86,19 @@ export default {
             align-items: center;
             gap: 5px;
             transition: .4s;
+            font-size: 15px;
 
             &:hover {
                 color: var(--main-pink);
             }
+        }
+    }
+}
+
+@media (max-width: 886px) {
+    .heading__bar {
+        .row {
+            justify-content: center;
         }
     }
 }

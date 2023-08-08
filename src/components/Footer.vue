@@ -61,6 +61,7 @@ export default {
 
     .row {
         justify-content: space-between;
+        flex-wrap: unset !important;
     }
 
     &-content {
@@ -80,6 +81,9 @@ export default {
             width: 100%;
             display: flex;
             align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+            row-gap: 5px;
 
             .footer-email-inp {
                 padding: 12px 20px;
@@ -96,7 +100,7 @@ export default {
             }
 
             .footer-btn {
-                padding: 10px 40px;
+                padding: 10px 20px;
             }
         }
 
@@ -175,6 +179,53 @@ export default {
             display: grid;
             place-items: center;
             font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        .row {
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            row-gap: 55px;
+        }
+
+        &-content {
+            align-items: center;
+            text-align: center;
+        }
+
+        &__links {
+            &-item {
+                align-items: center;
+                text-align: center;
+
+                &-title {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 624px) {
+    .footer {
+        &__links {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 40px;
+        }
+    }
+}
+
+@media (max-width: 350px) {
+    .copyright__content {
+        .row {
+            flex-direction: column;
+            align-items: center;
+            row-gap: 20px;
         }
     }
 }

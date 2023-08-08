@@ -3,6 +3,7 @@
   <section class="faq__section">
     <div class="container">
         <div class="row">
+
             <div class="faq__content">
                 <h2 class="faq__content-title all-title">{{ store.title }}</h2>
 
@@ -22,6 +23,7 @@
 
                 <button class="send-btn pink-btn">send email</button>
             </form>
+
         </div>
     </div>
   </section>
@@ -132,7 +134,6 @@ export default {
             }
         }
     }
-    
 }
 
 </style>

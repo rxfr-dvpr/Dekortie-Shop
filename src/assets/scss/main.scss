@@ -96,7 +96,7 @@ input[type=number] {
 }
 
 .logo-brand {
-    font-size: 34px;
+    font-size: calc(16px + 18 * (100vw / 1920));
     font-weight: 700;
     text-transform: capitalize;
     user-select: none;
@@ -129,7 +129,7 @@ input[type=number] {
     background: var(--main-pink);
     color: var(--main-white);
     border: 0;
-    font-size: 17px;
+    font-size: calc(14px + 3 * (100vw / 1920));
     padding: 15px 40px;
     text-transform: capitalize;
     border-radius: 3px;
@@ -145,7 +145,7 @@ input[type=number] {
 
     &:hover {
         background: rgba($color: #FB2E86, $alpha: .6);
-    }   
+    }
 }
 
 .all-title {
@@ -172,12 +172,29 @@ input[type=number] {
     .all-title {
         font-size: 42px !important;
     }
+
+    .pink-btn {
+        font-size: 17px !important;
+    }
+
+    .logo-brand {
+        font-size: 34px !important;
+    }
 }
 
 @media (max-width: 992px) {
     .all-title {
-        font-size: calc(24px + (18 + 18 * 0.7) * ((100vw - 320px)/ 1920));
+        font-size: calc(24px + (18 + 18 * 0.7) * ((100vw - 320px)/ 1920)) !important;
     }
+
+    .pink-btn {
+        font-size: calc(14px + (3 + 3 * 0.7) * ((100vw - 320px)/ 1920)) !important;
+    }
+
+    .logo-brand {
+        font-size: calc(16px + (18 + 18 * 0.7) * ((100vw - 320px)/ 1920)) !important;
+    }
+    
 }
 
 // About Page 
