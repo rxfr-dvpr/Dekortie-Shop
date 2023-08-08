@@ -48,9 +48,7 @@ export default {
               (item) => item.uniqueID === data.uniqueID
             );
 
-            if (existingProduct) {
-              existingProduct.quantity++;
-            } else {
+            if (!existingProduct) {
               data.quantity = 1;
               data.totalPrice = data.price * data.quantity;
               this.cartStore.products.push(data);

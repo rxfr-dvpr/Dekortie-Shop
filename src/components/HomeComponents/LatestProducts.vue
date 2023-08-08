@@ -12,16 +12,16 @@
 
             <div class="product__cards" v-for="(card, idd) in store.productList" :key="idd" v-show="card.visible">
                 <div class="product__cards-item" v-for="(item, id) in card.products" :key="id">
-                    <img :src="images[id]" alt="" class="product-img">
+                    <img :src="item.img" alt="" class="product-img">
 
                     <div class="product__info">
                         <p class="product__info-name">{{ item.name ? item.name : 'no name' }}</p>
-                        <p class="product__info-newPrice">${{ item.newPrice ? item.newPrice : '00'  }}.00</p>
+                        <p class="product__info-newPrice">${{ item.price ? item.price : '00'  }}.00</p>
                         <p class="product__info-oldPrice">${{ item.oldPrice ? item.oldPrice : '00' }}.00</p>
                     </div>
 
                     <div class="product__actions">
-                        <button @click="this.$router.push('/cart')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-shopping-cart" data-v-14426c0f=""></i></button>
+                        <button @click="pushData(idd, id)" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-shopping-cart" data-v-14426c0f=""></i></button>
                         <button @click="this.$router.push('/wishlist')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-heart" data-v-14426c0f=""></i></button>
                         <button @click="this.$router.push('/shop')" class="product__actions-btn" data-v-14426c0f=""><i class="far fa-search-plus" data-v-14426c0f=""></i></button>
                     </div>
@@ -35,25 +35,33 @@
 
 <script>
 import { ltstProductsStore } from "@/stores/HomeStores/ltstProductsStore.js";
-import image1 from "@/assets/images/homeView/ltstProducts/ltst-product-img-1.png";
-import image2 from "@/assets/images/homeView/ltstProducts/ltst-product-img-2.png";
-import image3 from "@/assets/images/homeView/ltstProducts/ltst-product-img-3.png";
-import image4 from "@/assets/images/homeView/ltstProducts/ltst-product-img-4.png";
-import image5 from "@/assets/images/homeView/ltstProducts/ltst-product-img-5.png";
-import image6 from "@/assets/images/homeView/ltstProducts/ltst-product-img-6.png";
+import { cartStore } from "@/stores/cartStore.js";
 
 export default {
     name: 'Latest Products',
     data() {
         return {
             store: ltstProductsStore(),
-            images: [image1, image2, image3, image4, image5, image6]
+            cartStore: cartStore()
         }
     },
     methods: {
         visibleFunc(id) {
             this.store.productList.map(item => item.visible = false)
             this.store.productList[id].visible = true
+        },
+        pushData(idd, id) {
+            const data = {...this.store.productList[idd].products[id]};
+
+            const existingProduct = this.cartStore.products.find(
+              (item) => item.uniqueID === data.uniqueID
+            );
+
+            if (!existingProduct && idd == 0) {
+              data.quantity = 1;
+              data.totalPrice = data.price * data.quantity;
+              this.cartStore.products.push(data);
+            }
         }
     }
 }

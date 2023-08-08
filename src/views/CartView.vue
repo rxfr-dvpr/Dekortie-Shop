@@ -16,6 +16,8 @@
                     <td class="product-info">
                         <img :src="product.img" alt="" class="product-info-img">
                         <p class="product-info-name">{{ product.name }}</p>
+
+                        <button class="del-btn" @click="this.store.products.splice(idx, 1)"><i class="fal fa-times"></i></button>
                     </td>
 
                     <td class="product-price">${{ product.price }}.00</td>
@@ -119,6 +121,7 @@ export default {
             width: 100%;
             text-align: left;
             text-align: center;
+            position: relative;
 
             .product {
                 &-info {
@@ -140,6 +143,23 @@ export default {
                         font-weight: 500;
                         color: var(--dark-color);
                         text-transform: capitalize;
+                    }
+
+                    .del-btn {
+                        background: transparent;
+                        border: 0;
+                        font-size: 20px;
+                        position: absolute;
+                        top: 0%;
+                        right: -1%;
+                        opacity: .1;
+
+                        &:hover {
+                            opacity: 1;
+                            i {
+                                color: var(--main-pink);
+                            }
+                        }
                     }
                 }
 
