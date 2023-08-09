@@ -19,7 +19,7 @@
                 <h3 class="faq__form-title">{{ store.faqForm.title }}</h3>
                 <input type="text" class="faq__form-name" v-model="store.faqForm.name" required placeholder="your name">
                 <input type="email" class="faq__form-email" v-model="store.faqForm.email" required placeholder="your email">
-                <textarea class="faq__form-msg" v-model="store.faqForm.msg" placeholder="type your message" rows="15"></textarea>
+                <textarea class="faq__form-msg" v-model="store.faqForm.msg" placeholder="type your message" rows="10"></textarea>
 
                 <button class="send-btn pink-btn">send email</button>
             </form>
@@ -133,6 +133,47 @@ export default {
                 color: var(--txt-purple);
             }
         }
+    }
+}
+
+@media (max-width: 1145px) {
+    .faq__content {
+        row-gap: 45px !important;
+
+        .faq__list {
+            row-gap: 35px !important;
+        }
+    }
+
+    .faq__form {
+        max-width: 500px !important;
+        padding: 45px !important;
+
+        &-title {
+            margin-bottom: 25px !important;
+        }
+    }
+}
+
+@media (max-width: 1080px) {
+    .faq__content {
+        max-width: 450px !important;
+    }
+    .faq__form {
+        max-width: 450px !important;
+        padding: 30px !important;
+        row-gap: 25px !important; 
+    }
+}
+
+@media (max-width: 992px) {
+    .faq__section {
+        padding: 70px 0;
+    }
+
+    .row {
+        flex-direction: column;
+        justify-content: flex-start;
     }
 }
 
