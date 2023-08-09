@@ -181,7 +181,7 @@ export default {
                     }
                 }
     
-                &:hover {
+                &:hover, &:active {
                     .product-descr {
                         background: var(--main-blue);
     

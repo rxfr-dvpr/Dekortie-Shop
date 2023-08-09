@@ -207,7 +207,7 @@ export default {
                 }
             }
 
-            &:hover {
+            &:hover, &:active {
                 .product__actions {
                     transform: translateX(0);
                 }
