@@ -116,7 +116,7 @@ export default {
                 }
 
                 &-title {
-                    font-size: 30px;
+                    font-size: calc(20px + 10 * (100vw / 1920));
                     text-transform: capitalize;
                     color: var(--ny-blue);
                 }
@@ -150,6 +150,36 @@ export default {
         height: 6px;
         background: var(--main-pink);
         border-radius: 50%;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog {
+        &__section {
+            padding: 70px 0;
+        }
+        
+        &-title {
+            font-size: calc(20px + (10 + 10 * 0.7) * ((100vw - 320px)/ 1920));
+        }
+    }
+}
+
+@media (max-width: 486px) {
+    .blog {
+        &__list {
+            &-item {
+                align-items: center !important;
+                text-align: center;
+            }
+        }
+
+        &-info {
+            max-width: 100% !important;
+            flex-direction: column;
+            align-items: center;
+            row-gap: 15px !important;
+        }
     }
 }
 

@@ -96,6 +96,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .single-blog__section {
   width: 100%;
   padding: 115px 0;
@@ -150,7 +151,7 @@ export default {
     }
 
     &-title {
-      font-size: 30px;
+      font-size: calc(20px + 10 * (100vw / 1920));
       text-transform: capitalize;
       color: var(--ny-blue);
     }
@@ -218,4 +219,40 @@ export default {
     }
   }
 }
+
+@media (max-width: 865px) {
+  .single-blog__section {
+    .row {
+      row-gap: 70px !important;
+    }
+  }
+
+  .blog-comment__form {
+    input {
+      max-width: 100% !important;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .single-blog {
+    align-items: center !important;
+    text-align: center !important;
+    row-gap: 20px !important;
+    &-title {
+      font-size: calc(20px + (10 + 10 * 0.7) * ((100vw - 320px)/ 1920));
+    }
+  }
+}
+
+@media (max-width: 486px) {
+  .single-blog {
+    &-info {
+      max-width: 100% !important;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+
 </style>
