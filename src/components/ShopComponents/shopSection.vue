@@ -80,7 +80,7 @@ export default {
     .row {
         flex-direction: column;
         align-items: flex-start;
-        row-gap: 145px;
+        row-gap: 120px;
     }
 
     .shop__top-bar {
@@ -88,6 +88,8 @@ export default {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
 
         .shop__top {
 
@@ -160,6 +162,33 @@ export default {
                     }
                 }
             }
+        }
+    }
+}
+
+@media (max-width: 900px) {
+    .shop__section {
+        padding: 80px 0;
+    }
+
+    .row {
+        row-gap: 70px !important;
+    }
+
+    .shop__top-bar {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: flex-start;
+    }
+}
+
+@media (max-width: 490px) {
+    .shop__top {
+        &-filters {
+            max-width: 100% !important;
+            flex-direction: column;
+            align-items: flex-start !important;
         }
     }
 }

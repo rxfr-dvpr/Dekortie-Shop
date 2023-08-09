@@ -57,6 +57,7 @@ export default {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   column-gap: 30px;
   row-gap: 50px;
 
@@ -83,6 +84,8 @@ export default {
     }
 
     .item-img {
+      max-width: max-content;
+      width: 100%;
       object-fit: contain;
     }
 
@@ -124,7 +127,7 @@ export default {
       row-gap: 8px;
 
       &-name {
-        font-size: 18px;
+        font-size: calc(15px + 3 * (100vw / 1920));
         color: var(--main-blue);
         font-weight: 700;
         text-transform: capitalize;
@@ -166,7 +169,6 @@ export default {
         justify-content: flex-start;
         gap: 35px;
         border-radius: 10px;
-        
 
         .item-img-box {
           max-width: 200px;
@@ -181,6 +183,51 @@ export default {
 
         &:hover {
           background: #EBF4F3;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1920px) {
+  .item__descr {
+    &-name {
+      font-size: 18px !important;
+    }
+  }
+}
+
+@media (max-width: 992px) {
+  .shop__list {
+    &-item {
+      max-width: 250px;
+      padding-top: 30px;
+
+      .item-img-box {
+        padding: 0 20px;
+      }
+    }
+  }
+  .item__descr {
+    &-name {
+      font-size: calc(15px + (3 + 3 * 0.7) * ((100vw - 320px)/ 1920));
+    }
+  }
+}
+
+@media (max-width: 720px) {
+  .shop__list {
+    &:not(.defaultView) {
+      .shop__list {
+        &-item {
+          max-width: 400px;
+          flex-direction: column;
+          align-items: center;
+
+          .item__descr {
+            align-items: center;
+            text-align: center;
+          }
         }
       }
     }
