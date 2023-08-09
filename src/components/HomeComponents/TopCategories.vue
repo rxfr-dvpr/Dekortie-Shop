@@ -74,8 +74,10 @@ export default {
     .categories-list {
         width: 100%;
         display: flex;
-        justify-content: space-between;
-        gap: 30px;
+        justify-content: center;
+        column-gap: 30px;
+        row-gap: 45px;
+        flex-wrap: wrap;
 
         &-item {
             max-width: 270px;
@@ -133,6 +135,12 @@ export default {
                 color: var(--ny-blue);
             }
         }
+    }
+}
+
+@media (max-width: 350px) {
+    .item__img-box {
+        padding: 0 30px !important;
     }
 }
 
