@@ -4,37 +4,39 @@
   <section class="products__section">
     <div class="container">
         <div class="row">
-            <table class="selected__products-table" v-if="store.products.length">
-                <tr class="product__top-types">
-                    <th>product</th>
-                    <th>price</th>
-                    <th>quantity</th>
-                    <th>total</th>
-                </tr>
+            <div class="products__table-box" v-if="store.products.length">
+                <table class="selected__products-table" >
+                    <tr class="product__top-types">
+                        <th>product</th>
+                        <th>price</th>
+                        <th>quantity</th>
+                        <th>total</th>
+                    </tr>
 
-                <tr class="product-item" v-for="(product, idx) in store.products" :key="idx">
-                    <td class="product-info">
-                        <img :src="product.img" alt="" class="product-info-img">
-                        <p class="product-info-name">{{ product.name }}</p>
+                    <tr class="product-item" v-for="(product, idx) in store.products" :key="idx">
+                        <td class="product-info">
+                            <img :src="product.img" alt="" class="product-info-img">
+                            <p class="product-info-name">{{ product.name }}</p>
 
-                        <button class="del-btn" @click="this.store.products.splice(idx, 1)"><i class="fal fa-times"></i></button>
-                    </td>
+                            <button class="del-btn" @click="this.store.products.splice(idx, 1)"><i class="fal fa-times"></i></button>
+                        </td>
 
-                    <td class="product-price">${{ product.price }}.00</td>
+                        <td class="product-price">${{ product.price }}.00</td>
 
-                    <td class="product-quantity">
-                        <span class="quantity-btn" @click="product.quantity > 1 ? priceChange(idx, '-'): ''">-</span>
-                            {{ product.quantity }} 
-                        <span class="quantity-btn" @click="priceChange(idx, '+')">+</span>
-                    </td>
+                        <td class="product-quantity">
+                            <span class="quantity-btn" @click="product.quantity > 1 ? priceChange(idx, '-'): ''">-</span>
+                                {{ product.quantity }} 
+                            <span class="quantity-btn" @click="priceChange(idx, '+')">+</span>
+                        </td>
 
-                    <td class="product-total-price">${{ product.totalPrice }}.00</td>
-                </tr>
+                        <td class="product-total-price">${{ product.totalPrice }}.00</td>
+                    </tr>
 
-                <tr>
-                    <button class="clear-btn pink-btn" @click="store.products = [], store.uniqueProducts = []">clear cart</button>
-                </tr>                
-            </table>
+                    <tr>
+                        <button class="clear-btn pink-btn" @click="store.products = [], store.uniqueProducts = []">clear cart</button>
+                    </tr>                
+                </table>
+            </div>
 
             <p class="no-product-txt" v-else>there is not any selected products</p>
             
@@ -103,8 +105,13 @@ export default {
         gap: 50px;
     }
 
-    .selected__products-table {
+    .products__table-box {
         max-width: 720px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .selected__products-table {
         width: 100%;
         height: 100%;
 
@@ -130,6 +137,7 @@ export default {
                     display: flex;
                     gap: 15px;
                     align-items: center;
+                    padding-right: 10px;
 
                     &-img {
                         max-width: 80px;
@@ -263,5 +271,68 @@ export default {
         }
     }
 }
+
+@media (max-width: 1170px) {
+    .products__table-box  {
+        max-width: 650px !important;
+    }
+
+    .cart__totals-sidebar {
+        max-width: 320px !important;
+    }
+}
+
+@media (max-width: 1060px) {
+    .products__table-box  {
+        max-width: 600px !important;
+    }
+
+    .cart__totals-sidebar {
+        max-width: 300px !important;
+    }
+}
+
+@media (max-width: 992px) {
+    .products__section {
+        padding: 70px 0;
+    }
+
+    .products__table-box  {
+        max-width: 500px !important;
+    }
+
+    .cart__totals-sidebar {
+        max-width: 260px !important;
+    }
+
+    .no-product-txt {
+        text-align: center;
+    }
+}
+
+@media (max-width: 850px) {
+    .products__table-box  {
+        overflow-x: auto;
+        padding-bottom: 10px;
+
+        .selected__products-table {
+            min-width: 550px !important;
+        }
+    }
+
+    .row {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+::-webkit-scrollbar {
+    height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+}
+
 
 </style>

@@ -6,7 +6,7 @@
         <div class="row">
 
             <form action="" class="account-form" @submit.prevent>
-                <p class="account-form-title">{{ fStore.form.title }}</p>
+                <p class="account-form-title all-title">{{ fStore.form.title }}</p>
                 <p class="account-form-txt">{{ fStore.form.txt }}</p>
 
                 <input type="email" class="email-inp" v-model="fStore.form.emailInp.value" :placeholder="fStore.form.emailInp.placeHolder" required>
@@ -67,14 +67,12 @@ export default {
         box-shadow: 0px 0px 25px 10px #F8F8FB;
 
         &-title {
-            font-size: 32px;
             color: var(--dark-color);
-            text-transform: capitalize;
             font-weight: 700;
         }
 
         &-txt {
-            font-size: 17px;
+            font-size: 16px;
             color: var(--txt-purple);
 
             &::first-letter {
@@ -111,6 +109,26 @@ export default {
             color: var(--txt-purple);
             cursor: pointer;
         }
+    }
+}
+
+@media (max-width: 992px) {
+    .form__section {
+        padding: 70px 0;
+    }
+
+    .account-form {
+        padding: 35px 40px !important;
+
+        input {
+            padding: 10px 12px !important;
+        }
+    }
+}
+
+@media (max-width: 486px) {
+    .account-form {
+        padding: 20px 25px !important;
     }
 }
 
