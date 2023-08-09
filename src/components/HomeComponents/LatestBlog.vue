@@ -61,7 +61,7 @@ export default {
   .blog__cards {
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 35px;
 
     &-item {
@@ -159,6 +159,20 @@ export default {
           border-bottom-color: var(--main-pink);
         }
       }
+    }
+  }
+}
+
+@media (max-width: 1110px) {
+  .blog__cards {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 992px) {
+  .latest-blog__section {
+    .row {
+      row-gap: 45px;
     }
   }
 }
