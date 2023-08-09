@@ -56,4 +56,10 @@ export default {
   row-gap: 80px;
 }
 
+@media (max-width: 1024px) {
+  .main {
+    padding: 90px 0;
+  }
+}
+
 </style>

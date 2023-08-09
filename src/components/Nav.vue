@@ -58,7 +58,7 @@ export default {
     align-items: center;
 
     &-link {
-      font-size: calc(13px + 3 * (100vw / 1920));
+      font-size: calc(14px + 3 * (100vw / 1920));
       text-transform: capitalize;
       font-weight: 500;
       transition: .3s;
@@ -78,7 +78,7 @@ export default {
   .nav {
     &__list {
       &-link {
-        font-size: 16px !important;
+        font-size: 17px !important;
       }
     }
   }
@@ -93,7 +93,7 @@ export default {
   
     &__list {
       &-link {
-        font-size: calc(13px + (3 + 3 * 0.7) * ((100vw - 320px)/ 1920)) !important;
+        font-size: calc(14px + (3 + 3 * 0.7) * ((100vw - 320px)/ 1920)) !important;
       }
     }
   }

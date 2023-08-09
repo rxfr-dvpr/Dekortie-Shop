@@ -76,8 +76,9 @@ export default {
         &-cards {
             width: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             gap: 30px;
+            flex-wrap: wrap;
     
             &-item {
                 max-width: 270px;
@@ -199,6 +200,26 @@ export default {
                 }
             }
         }
+    }
+}
+
+@media (max-width: 600px) {
+    .ftd__products {
+        &-cards {
+            &-item {
+                max-width: 250px !important;
+
+                &:hover {
+                    .view-btn {
+                        top: 55% !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .product-img {
+        padding: 20px 35px !important;
     }
 }
 
