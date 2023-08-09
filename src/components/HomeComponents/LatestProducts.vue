@@ -107,7 +107,7 @@ export default {
     .product__cards {
         width: 100%;
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
         column-gap: 35px;
         row-gap: 100px;
@@ -227,6 +227,38 @@ export default {
                 text-transform: capitalize;
             }
         }
+    }
+}
+
+@media (max-width: 786px) {
+    .product__cards {
+        row-gap: 60px !important;
+        
+        &-item {
+            max-width: 300px !important;
+
+            .product-img {
+                padding: 0 50px;
+            }
+        }
+    }
+}
+
+@media (max-width: 526px) {
+    .product-types {
+        gap: 30px !important;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 346px) {
+    .product__info {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+
+    .product__actions {
+        bottom: 25% !important;
     }
 }
 
