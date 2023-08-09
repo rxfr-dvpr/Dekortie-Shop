@@ -59,7 +59,6 @@
                     <button class="calculate-btn pink-btn">calculate shipping</button>
                 </div>
             </div>
-
         </div>
     </div>
   </section>

@@ -1,6 +1,6 @@
 # Dekortie-Shop
 
-This template should help get you started developing with Vue 3 in Vite.
+This Project Development Successfully Finished
 
 ## Recommended IDE Setup
 
