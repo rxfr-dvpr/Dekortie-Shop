@@ -94,4 +94,19 @@ export default {
     }
 }
 
+@media (max-width: 1024px) {
+    .offer__cards {
+        &-item {
+            padding: 30px !important;
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .offer__cards {
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+}
+
 </style>
