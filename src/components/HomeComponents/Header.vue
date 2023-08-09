@@ -31,7 +31,7 @@ export default {
             store: headerStore(),
             lightImg,
             armchairImg,
-            pageShowen: false
+            pageShowen: false,
         }
     },
     mounted() {
@@ -55,6 +55,7 @@ export default {
         position: relative;
         padding: 40px 0;
         flex-wrap: unset;
+        gap: 40px;
     }
 
     &__descr {
@@ -73,7 +74,7 @@ export default {
         &-title {
             color: var(--dark-color);
             text-transform: capitalize;
-            font-size: 53px;
+            font-size: calc(25px + 28 * (100vw / 1920));
         }
 
         &-txt {
@@ -115,6 +116,38 @@ export default {
 
         &.showen {
             transform: translateY(0);
+        }
+    }
+}
+
+@media (min-width: 1920px) {
+    .header__descr-title  {
+        font-size: 53px !important;
+    }
+}
+
+@media (max-width: 1800px) {
+    .light-img {
+        display: none;
+    } 
+}
+
+@media (max-width: 786px) {
+    .header {
+        .row {
+            flex-direction: column-reverse;
+            align-items: center;
+        }
+
+        &__descr {
+            &-title {
+                font-size: calc(25px + (28 + 28 * 0.7) * ((100vw - 320px)/ 1920));
+            }
+        }
+
+        &__img-box {
+            max-width: 450px !important;
+            padding: 0 30px;
         }
     }
 }
